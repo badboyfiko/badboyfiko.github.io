@@ -18,7 +18,7 @@ const StyledColumn = styled(Column)`
 `
 
 const Question = ({index, title, middlePart, bottomPart, height}) => (
-    <Container style={{height}}>
+    <Container style={{height: Math.max(height, 520)}}>
         <StyledColumn height="100%" alignItems="center" justifyContent="center">
             <Title>{title}</Title>
             <Column alignItems="center" style={{width: '100%', maxWidth: 500}} my={20}>
