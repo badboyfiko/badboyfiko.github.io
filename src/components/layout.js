@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex as GridFlex, Box as GridBox } from '@rebass/grid'
 import {height, flex} from 'styled-system'
 
-export const Flex = styled(GridFlex)`
+export const Flex = styled(({fill, ...props}) => <GridFlex {...props} />)`
   ${height}
   ${flex}
   ${props => props.fill && `flex: 1;`}

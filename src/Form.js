@@ -87,15 +87,15 @@ class Form extends React.Component {
     slider
     state = {
         height: 0,
-        first: null,
-        second: null,
-        third: null,
-        fourthFirst: null,
-        fourthSecond: null,
+        first: '',
+        second: '',
+        third: '',
+        fourthFirst: '',
+        fourthSecond: '',
         fourthLastChanged: 2,
-        fifth: null,
-        sixth: null,
-        seventh: null,
+        fifth: '',
+        sixth: '',
+        seventh: '',
         currentSlide: 0,
         submitted: false,
         loading: false,
@@ -136,14 +136,14 @@ class Form extends React.Component {
                     target="hidden_iframe"
                     onSubmit={() => this.setState({submitted: true, loading: true})}
                 >
-                    <input hidden name="entry.1818673664" value={this.state.first} />
-                    <input hidden name="entry.1325270118" value={this.state.second} />
-                    <input hidden name="entry.1839361473" value={this.state.third} />
-                    <input hidden name="entry.1056926404" value={this.state.fourthFirst} />
-                    <input hidden name="entry.1940824696" value={this.state.fourthSecond} />
-                    <input hidden name="entry.958556041" value={this.state.fifth} />
-                    <input hidden name="entry.30835927" value={this.state.sixth} />
-                    <input hidden name="entry.8189518" value={this.state.seventh} />
+                    <input hidden name="entry.1818673664" value={this.state.first} onChange={() => null} />
+                    <input hidden name="entry.1325270118" value={this.state.second} onChange={() => null} />
+                    <input hidden name="entry.1839361473" value={this.state.third} onChange={() => null} />
+                    <input hidden name="entry.1056926404" value={this.state.fourthFirst} onChange={() => null} />
+                    <input hidden name="entry.1940824696" value={this.state.fourthSecond} onChange={() => null} />
+                    <input hidden name="entry.958556041" value={this.state.fifth} onChange={() => null} />
+                    <input hidden name="entry.30835927" value={this.state.sixth} onChange={() => null} />
+                    <input hidden name="entry.8189518" value={this.state.seventh} onChange={() => null} />
                     <Column fill>
                         <Slider ref={node => { this.slider = node }} {...settings}>
                             <Question
@@ -204,10 +204,12 @@ class Form extends React.Component {
                                             return
                                         }
                                         if (this.state.fourthLastChanged === 2) {
+                                            if (this.state.fourthSecond === value) return
                                             this.setState({fourthFirst: value, fourthLastChanged: 1})
                                             return
                                         }
                                         if (this.state.fourthLastChanged === 1) {
+                                            if (this.state.fourthFirst === value) return
                                             this.setState({fourthSecond: value, fourthLastChanged: 2})
                                             return
                                         }

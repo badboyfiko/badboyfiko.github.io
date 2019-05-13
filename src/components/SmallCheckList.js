@@ -45,7 +45,7 @@ const OptionWrapper = styled(Flex).attrs(() => ({height: 40, alignItems: 'center
 const CheckList = ({items, selected, onChange, numbers}) => <Row style={{width: '100%'}} justifyContent="center">
     <Cell>
         {items.slice(0, 7).map((item, i) => (
-            <OptionWrapper onClick={() => onChange(item)}>
+            <OptionWrapper key={item} onClick={() => onChange(item)}>
                 <CheckBox selected={selected.indexOf(item) !== -1} />
                 {numbers &&
                     <Fragment>
@@ -60,7 +60,7 @@ const CheckList = ({items, selected, onChange, numbers}) => <Row style={{width: 
     {items.length > 7 &&
         <Cell>
             {items.slice(7, 14).map((item, i) => (
-                <OptionWrapper onClick={() => onChange(item)}>
+                <OptionWrapper key={item} onClick={() => onChange(item)}>
                     <CheckBox selected={selected.indexOf(item) !== -1} />
                     {numbers &&
                     <Fragment>

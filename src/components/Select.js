@@ -48,10 +48,10 @@ const StyledSelect = styled.select`
 `
 
 const Select = ({items, ...props}) => (
-    <Wrapper fill>
-        <StyledSelect {...props}>
-            <option style={{display: 'none'}} disabled selected value>Vyberte politickú stranu zo zoznamu</option>
-            {items.map(item => <option value={item}>{item}</option>)}
+    <Wrapper>
+        <StyledSelect defaultValue="XX" {...props}>
+            <option style={{display: 'none'}} disabled value="XX">Vyberte politickú stranu zo zoznamu</option>
+            {items.map(item => <option key={item} value={item}>{item}</option>)}
         </StyledSelect>
         <StyledArrow />
     </Wrapper>
